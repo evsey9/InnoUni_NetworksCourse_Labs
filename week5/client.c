@@ -1,4 +1,4 @@
-// Client side implementation of UDP client-server model
+// Made by Evsey Antonovich, e.antonovich@innopolis.university
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
