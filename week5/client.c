@@ -32,20 +32,18 @@ int main() {
 	socklen_t len;
 
 	while (1) {
-		printf("Input number: ");
 		int num = 0;
 		scanf("%d", &num);
 		sprintf((char *) message, "%d", num);
 		sendto(sockfd, (const char *)message, strlen(message),
 			   MSG_CONFIRM, (const struct sockaddr *) &servaddr,
 			   sizeof(servaddr));
-		printf("Message sent.\n");
 
 		n = recvfrom(sockfd, (char *)buffer, MAXLINE,
 					 MSG_WAITALL, (struct sockaddr *) &servaddr,
 					 &len);
 		buffer[n] = '\0';
-		printf("Server : %s\n", buffer);
+		printf("%s\n", buffer);
 		if (strcmp(buffer, "WIN") == 0 || strcmp(buffer, "LOSE") == 0) {
 			break;
 		}
