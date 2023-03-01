@@ -30,10 +30,8 @@ int main() {
 
 	int n;
 	socklen_t len;
-
+	int num = (int)random() % 42 + 1;
 	while (1) {
-		int num = 0;
-		scanf("%d", &num);
 		sprintf((char *) message, "%d", num);
 		sendto(sockfd, (const char *)message, strlen(message),
 			   MSG_CONFIRM, (const struct sockaddr *) &servaddr,
@@ -46,6 +44,12 @@ int main() {
 		printf("%s\n", buffer);
 		if (strcmp(buffer, "WIN") == 0 || strcmp(buffer, "LOSE") == 0) {
 			break;
+		}
+		if (strcmp(buffer, "MORE") == 0) {
+			num--;
+		}
+		if (strcmp(buffer, "LESS") == 0) {
+			num++;
 		}
 
 	}
