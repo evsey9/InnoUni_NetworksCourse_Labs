@@ -5,3 +5,6 @@ set(CMAKE_C_STANDARD 99)
 
 add_executable(week5_server week5/server.c)
 add_executable(week5_client week5/client.c)
+
+add_executable(week6_server week6/server.c)
+add_executable(week6_client week6/client.c)
